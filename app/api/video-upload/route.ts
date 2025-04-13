@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
                 duration: result.duration || 0,
             }
         })
-        return NextResponse.json(video)
+        return NextResponse.json(video, {status: 200})
 
     } catch (error) {
         console.log("Upload video failed", error)
