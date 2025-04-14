@@ -31,9 +31,10 @@ function VideoUpload() {
         formData.append("title", title);
         formData.append("description", description);
         formData.append("originalSize", file.size.toString());
+        console.log(formData.get("file") , formData.get("title"), formData.get("description"), formData.get("originalSize"))
 
         try {
-            const response = await axios.post("/api/video-upload", formData)
+            const response = await axios.post("/api/video-upload", formData);
             if (response.status === 200) {
               router.push("/");
             } else {

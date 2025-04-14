@@ -47,6 +47,9 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({error: "File not found"}, {status: 400})
         }
 
+        console.log(file, title, description, originalSize);
+
+
         const bytes = await file.arrayBuffer()
         const buffer = Buffer.from(bytes)
 
@@ -68,6 +71,7 @@ export async function POST(request: NextRequest) {
                 uploadStream.end(buffer)
             }
         )
+        console.log("Upload result", result);
         const video = await prisma.video.create({
             data: {
                 title,
@@ -82,7 +86,7 @@ export async function POST(request: NextRequest) {
 
     } catch (error) {
         console.log("Upload video failed", error)
-        return NextResponse.json({error: "UPload video failed"}, {status: 500})
+        return NextResponse.json({error: "Upload video failed"}, {status: 500})
     } finally{
         await prisma.$disconnect()
     }
