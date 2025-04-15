@@ -4,7 +4,6 @@ import { auth } from '@clerk/nextjs/server';
 
 interface CloudinaryUploadResult {
   public_id: string;
-  [key: string]: any;
 }
 
 cloudinary.config({
