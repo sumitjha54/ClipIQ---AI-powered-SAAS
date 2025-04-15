@@ -10,6 +10,7 @@ dayjs.extend(relativeTime);
 
 interface VideoCardProps {
   video: Video;
+  onDownload: (url: string, title: string) => void;
 }
 
 const VideoCard: React.FC<VideoCardProps> = ({ video }) => {
