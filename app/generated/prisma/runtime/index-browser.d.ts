@@ -1,3 +1,6 @@
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 declare class AnyNull extends NullTypesEnumValue {
     private readonly _brand_AnyNull;
 }
